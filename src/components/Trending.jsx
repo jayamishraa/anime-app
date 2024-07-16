@@ -3,37 +3,37 @@ import axios from 'axios';
 import Card from './Card';
 import Search from './Search';
 
-const Trending = () => {
+const Trending = ({setDescriptionId}) => {
   const [mangaData, setMangaData] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchMangaData = async () => {
-      const options = {
-        method: 'GET',
-        url: 'https://mangaverse-api.p.rapidapi.com/manga/fetch',
-        params: {
-          page: '1',
-          genres: 'Harem,Fantasy',
-          nsfw: 'true',
-          type: 'all'
-        },
-        headers: {
-          'X-RapidAPI-Key': 'b091830876mshdab95a55f052181p110829jsn923c63645bf2',
-          'X-RapidAPI-Host': 'mangaverse-api.p.rapidapi.com'
-        }
-      };
-
-      try {
-        const response = await axios.request(options);
-        setMangaData(response.data.data);
-        // console.log(response.data.data);
-      } catch (error) {
-        setError(error);
-        console.error(error);
+  const fetchMangaData = async () => {
+    const options = {
+      method: 'GET',
+      url: 'https://mangaverse-api.p.rapidapi.com/manga/fetch',
+      params: {
+        page: '1',
+        genres: 'Harem,Fantasy',
+        nsfw: 'true',
+        type: 'all'
+      },
+      headers: {
+        'X-RapidAPI-Key': 'b091830876mshdab95a55f052181p110829jsn923c63645bf2',
+        'X-RapidAPI-Host': 'mangaverse-api.p.rapidapi.com'
       }
     };
 
+    try {
+      const response = await axios.request(options);
+      setMangaData(response.data.data);
+      // console.log(response.data.data);
+    } catch (error) {
+      setError(error);
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
     fetchMangaData();
   }, []); 
 
@@ -52,6 +52,7 @@ const Trending = () => {
                 id = {manga.id}
                 title={manga.title} 
                 thumb={manga.thumb}
+                setDescriptionId={setDescriptionId}
               />
             </div>
           ))}

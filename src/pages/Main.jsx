@@ -3,11 +3,11 @@ import Header from '../components/Header'
 import Trending from '../components/Trending'
 import { Outlet } from 'react-router-dom'
 
-const Main = () => {
+const Main = ({setDescriptionId}) => {
   return (
     <div>
       <Header />
-      <Trending />
+        {/* <Trending setDescriptionId={setDescriptionId} /> */}
       
       <Outlet />
     </div>

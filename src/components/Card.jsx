@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
-const Card = ({ id, title, thumb }) => {
+const Card = ({ id, title, thumb, setDescriptionId }) => {
   return (
     <div className="max-w-[12rem] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-72 flex flex-col">
       <a href="#">
