@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <div className='flex justify-center items-center'> 
+    <div className='fixed top-0 w-full bg-white flex justify-center items-center shadow-md z-50'>
       <Link to='/trending'>
         <div className='px-5 py-3'>Trending</div>
       </Link>

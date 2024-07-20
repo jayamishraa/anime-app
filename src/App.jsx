@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Main from "./pages/Main"
 import { useState } from "react"
-import Details from "./pages/Details"
+import Description from "./pages/Description"
 import Trending from "./components/Trending"
 
 function App() {
@@ -20,8 +20,9 @@ function App() {
         />  
           <Route 
             path="/description" 
-            element={<Details descriptionId={descriptionId} />} 
+            element={<Description descriptionId={descriptionId} />} 
           />  
+            
           
                   
         </Route>

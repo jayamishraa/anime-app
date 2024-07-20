@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Outlet } from 'react-router-dom';
+import Details from '../components/Details';
 
-const Details = ({ descriptionId }) => {
-    const [details, setDetails] = useState([])
+const Description = ({ descriptionId }) => {
+    const [details, setDetails] = useState({})
     const [error, setError] = useState(null);
 
     const fetchDetails = async () => {
@@ -21,7 +22,7 @@ const Details = ({ descriptionId }) => {
 
         try {
             const response = await axios.request(options);
-            console.log(response.data.data);
+            setDetails(response.data.data);
         } catch (error) {
             setError(error);
         }
@@ -41,8 +42,17 @@ const Details = ({ descriptionId }) => {
             {error ? (
                 <p>Error: {error.message}</p>
             ) : (
-                <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
-                    {descriptionId}
+                <div >
+                    <Details 
+                        thumb ={details.thumb} 
+                        title = {details.title}
+                        status = {details.status}
+                        summary = {details.summary}
+                        authors = {details.authors}
+                        genres = {details.genres}
+                        type = {details.type}
+                        chapters = {details.total_chapter}
+                    />
                 </div>
             )}
             <Outlet />
@@ -50,4 +60,4 @@ const Details = ({ descriptionId }) => {
     );
 }
 
-export default Details;
+export default Description;

@@ -40,7 +40,7 @@ const Search = () => {
   }, [searchTerm]);
 
   return (
-    <div>
+    <div className='mb-6'>
       <input
         type="text"
         value={search}
@@ -52,7 +52,7 @@ const Search = () => {
       {error && <div>Error: {error.message}</div>}
       <div className="grid grid-cols-4 md:grid-cols-6 gap-4"> 
         {getSearchData.map((manga, index) => (
-          <div key={index}>
+          <div key={index} className='mt-6'>
             <Card 
               title={manga.title} 
               thumb={manga.thumb}

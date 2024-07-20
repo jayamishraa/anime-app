@@ -3,9 +3,12 @@ import axios from 'axios';
 import Card from './Card';
 import Search from './Search';
 
-const Trending = ({setDescriptionId}) => {
+import loadingAnime from '/loadingAnime.gif';
+
+const Trending = ({ setDescriptionId }) => {
   const [mangaData, setMangaData] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchMangaData = async () => {
     const options = {
@@ -26,37 +29,40 @@ const Trending = ({setDescriptionId}) => {
     try {
       const response = await axios.request(options);
       setMangaData(response.data.data);
-      // console.log(response.data.data);
     } catch (error) {
       setError(error);
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     fetchMangaData();
-  }, []); 
+  }, []);
 
   return (
     <div>
-
       <Search />
-      
-      {error ? (  
+      {isLoading ? (
+        <div className='flex items-center justify-center'>
+          <img src={loadingAnime} alt="Loading" className='w-32 h-32' />
+        </div>
+      ) : error ? (
         <p>Error: {error.message}</p>
-      ) : ( 
-        <div className="grid grid-cols-4 md:grid-cols-6 gap-4"> 
+      ) : (
+        <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
           {mangaData.map((manga, index) => (
             <div key={index}>
               <Card 
-                id = {manga.id}
+                id={manga.id}
                 title={manga.title} 
                 thumb={manga.thumb}
                 setDescriptionId={setDescriptionId}
               />
             </div>
           ))}
-        </div> 
+        </div>
       )}
     </div>
   );
