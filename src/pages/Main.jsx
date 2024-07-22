@@ -9,8 +9,8 @@ const Main = ({ setDescriptionId }) => {
       <Header />
       <div className='relative p-10 bg-cover bg-center bg-fixed h-full' style={{ backgroundImage: "url('/backgroundAnime.jpeg')" }}>
         <div className='absolute inset-0 bg-black opacity-50'></div>
-        <div className='relative z-10 mt-10'>
-          {/* <Trending setDescriptionId={setDescriptionId} /> */}
+        <div className='relative z-10 mt-10 h-100'>
+
           <Outlet />
         </div>
       </div>

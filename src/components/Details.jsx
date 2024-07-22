@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import loadingAnime from '/loadingAnime.gif';
 import Chapters from './Chapters';
 
-const Details = ({ thumb, title, status, summary, authors, genres, type, total_chapter }) => {
+const Details = ({ thumb, title, status, summary, authors, genres, type, total_chapter, setImageId, descriptionId }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isChapter, setIsChapter] = useState(false);
 
@@ -37,7 +37,7 @@ const Details = ({ thumb, title, status, summary, authors, genres, type, total_c
             >
               {isChapter ? 'Hide Chapters' : 'Show Chapters'}
             </button>
-            {isChapter && <Chapters />}
+            {isChapter && <Chapters setImageId={setImageId} descriptionId={descriptionId} />}
           </div>
         </div>
       )}

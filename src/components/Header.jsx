@@ -7,7 +7,9 @@ const Header = () => {
       <Link to='/trending'>
         <div className='px-5 py-3'>Trending</div>
       </Link>
-      <div className='px-5 py-3'>Discover</div>
+      <Link to='/'>
+        <div className='px-5 py-3'>Home</div>
+      </Link>
       <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded'>Login</button>
     </div>
   )

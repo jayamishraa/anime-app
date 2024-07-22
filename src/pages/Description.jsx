@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Outlet } from 'react-router-dom';
 import Details from '../components/Details';
 
-const Description = ({ descriptionId }) => {
+const Description = ({ descriptionId, setImageId }) => {
     const [details, setDetails] = useState({})
     const [error, setError] = useState(null);
 
@@ -52,6 +52,8 @@ const Description = ({ descriptionId }) => {
                         genres = {details.genres}
                         type = {details.type}
                         chapters = {details.total_chapter}
+                        setImageId = {setImageId}
+                        descriptionId = {descriptionId}
                     />
                 </div>
             )}
