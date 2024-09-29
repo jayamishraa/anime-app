@@ -31,7 +31,7 @@ const ImagePage = ({ imageId }) => {
   }, [imageId]);
 
   return (
-    <div className='relative'>
+    <div className='relative right-[-20vw]'>
       {images.length > 0 ? (
         images.map((image) => (
           //style it

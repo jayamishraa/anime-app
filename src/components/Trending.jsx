@@ -42,16 +42,18 @@ const Trending = ({ setDescriptionId }) => {
   }, []);
 
   return (
-    <div>
+    <div className='h-full'>
       <Search />
       {isLoading ? (
-        <div className='flex items-center justify-center'>
-          <img src={loadingAnime} alt="Loading" className='w-32 h-32' />
+        <div className='flex items-center justify-center h-screen'>
+          <div className='flex top-[-50vh] items-center justify-center h-full'>
+            <img src={loadingAnime} alt="Loading" className='w-32 h-32' />
+          </div>
         </div>
       ) : error ? (
         <p>Error: {error.message}</p>
       ) : (
-        <div className="grid grid-cols-4 md:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
           {mangaData.map((manga, index) => (
             <div key={index}>
               <Card 

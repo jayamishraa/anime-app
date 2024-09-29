@@ -12,7 +12,7 @@ const Card = ({ id, title, thumb, setDescriptionId }) => {
           <h5 className="mb-2 text-xs font-bold tracking-tight text-gray-900 dark:text-white text-center">{title}</h5>
         </a>
         <Link to='/description'>
-          <button onClick={() => setDescriptionId(id)} className="inline-flex items-center px-2 py-1 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-2">
+          <button onClick={() => setDescriptionId(id)} className=" inline-flex items-center px-2 py-1 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-2">
             Read
           </button>
         </Link> 
